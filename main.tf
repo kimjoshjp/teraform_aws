@@ -4,7 +4,7 @@ variable "aws_secret_key" {}
 provide "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
-  region = "ap-northeast-1"
+  region = "ap-southeast-2"
   }
 
 resource "aws_vpc" "test-vpc" {
