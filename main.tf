@@ -4,15 +4,12 @@ variable "aws_secret_key" {}
 provider "aws" {
   access_key = var.aws_access_key
   secret_key = var.aws_secret_key
-  region = "us-west-2"
+  region = "ap-northeast-1"
 }
 
 resource "aws_instance" "web" {
-  ami           = "ami-005e54dee72cc1d00" #us-west-2
-  instance_type = "t3.micro"
-
-  tags = {
-    Name = "HelloWorld"
+  ami           = "ami-0bba69335379e17f8" #ap-northeast-1
+  instance_type = "t2.micro
   }
 }
 
