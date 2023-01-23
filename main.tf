@@ -22,6 +22,12 @@ resource "aws_instance" "web" {
   count = 3
   }
 
+resource "aws_iam_user" "lb" {
+  name = "loadbalancer.${count.index}"
+  count = 5
+  path = "/system/"
+  
+}
 resource "aws_vpc" "test-vpc" {
   cidr_block = "10.0.0.0/16"
   tags = {
