@@ -19,6 +19,7 @@ provider "aws" {
 resource "aws_instance" "web" {
   ami           = "ami-0bba69335379e17f8" #ap-northeast-1
   instance_type = "t2.micro"
+  count = 3
   }
 
 resource "aws_vpc" "test-vpc" {
