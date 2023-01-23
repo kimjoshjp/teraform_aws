@@ -22,11 +22,16 @@ resource "aws_instance" "web" {
   count = 3
   }
 
+variable "elb_names" {
+type = lists
+default = ["dev-tester","stage-tester","prod-tester"]
+}
+
 resource "aws_iam_user" "lb" {
-  name = "loadbalancer.${count.index}"
-  count = 5
+  name = var.elb_names[count.index]
+  count = 3
   path = "/system/"
-  
+
 }
 resource "aws_vpc" "test-vpc" {
   cidr_block = "10.0.0.0/16"
