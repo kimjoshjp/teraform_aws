@@ -22,6 +22,18 @@ resource "aws_instance" "web" {
   count = 3
   }
 
+resource "aws_instance" "dev" {
+  ami           = "ami-0bba69335379e17f8" #ap-northeast-1
+  instance_type = "t2.micro"
+  count = var.istest == true ? 2 : 0
+}
+
+resource "aws_instance" "prod" {
+  ami           = "ami-0bba69335379e17f8" #ap-northeast-1
+  instance_type = "t2.micro"
+  count = var.istest == false ? 2 : 0
+}
+
 variable "elb_names" {
 type = list
 default = ["dev-tester","stage-tester","prod-tester"]
