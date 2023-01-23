@@ -23,7 +23,7 @@ resource "aws_instance" "web" {
   }
 
 variable "elb_names" {
-type = lists
+type = list
 default = ["dev-tester","stage-tester","prod-tester"]
 }
 
